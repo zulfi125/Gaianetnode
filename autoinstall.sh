@@ -82,7 +82,7 @@ uninstall_node() {
 auto_interaction_v1() {
     echo "Starting Auto Interaction with Your Node [V1]..."
     check_node_version
-    local script_path="$HOME/CNH-Gaianetnode/main.js"
+    local script_path="$HOME/gaianetnode/main.js"
     local log_file="$HOME/interaction_v1.log"
     local pid_file="$HOME/interaction_v1.pid"
 
@@ -103,7 +103,7 @@ auto_interaction_v1() {
 auto_interaction_v2() {
     echo "Starting Auto Interaction with Your Node [V2]..."
     check_python_version
-    local script_path="$HOME/CNH-Gaianetnode/main.py"
+    local script_path="$HOME/gaianetnode/main.py"
     local log_file="$HOME/interaction_v2.log"
     local pid_file="$HOME/interaction_v2.pid"
 
@@ -113,17 +113,17 @@ auto_interaction_v2() {
     fi
 
     # Ensure a virtual environment exists
-    if [ ! -d "$HOME/CNH-Gaianetnode/env" ]; then
+    if [ ! -d "$HOME/gaianetnode/env" ]; then
         echo "Creating Python virtual environment..."
-        python3 -m venv "$HOME/CNH-Gaianetnode/env"
+        python3 -m venv "$HOME/gaianetnode/env"
     fi
 
     # Activate the virtual environment
-    source "$HOME/CNH-Gaianetnode/env/bin/activate"
+    source "$HOME/gaianetnode/env/bin/activate"
 
     # Install required Python dependencies
     echo "Installing required Python packages..."
-    pip install -r "$HOME/CNH-Gaianetnode/requirements.txt"
+    pip install -r "$HOME/gaianetnode/requirements.txt"
 
     # Use nohup to run the Python script in the background
     echo "Starting the Python script with nohup..."
